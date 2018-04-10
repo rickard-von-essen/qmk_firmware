@@ -82,6 +82,9 @@ void matrix_scan_kb(void) {
 
 __attribute__ ((weak))
 void matrix_init_user(void) {
+    // :rgblight_enable();
+    rgblight_setrgb_at(100,0,0, 2);
+    rgblight_setrgb_at(0,100,0, 3);
 }
 
 __attribute__ ((weak))
