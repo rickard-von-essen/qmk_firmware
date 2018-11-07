@@ -1,6 +1,7 @@
 #include "lets_split.h"
 #include "action_layer.h"
 #include "eeconfig.h"
+#include "rickard.h"
 // #include "keymap_swedish.h"
 
 extern keymap_config_t keymap_config;
@@ -47,8 +48,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_ortho_4x12( \
-  KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
-  KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
+  KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
+  KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT , \
   ADJUST,  KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT \
 ),
@@ -213,27 +214,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-    case AA:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT("a"));
-        return false;
-      }
-      return true;
-      break;
-    case AE:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT("u")"a");
-        return false;
-      }
-      return true;
-      break;
-    case OSLH:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LALT("u")"o");
-        return false;
-      }
-      return true;
-      break;
+    case AA: // Å
+      if (record->event.pressed)
+        SS_IF_SHIFT(SS_LALT("00C5"), SS_LALT("00E5"));
+      return false;
+    case AE: // Ä
+      if (record->event.pressed)
+        SS_IF_SHIFT(SS_LALT("00C4"), SS_LALT("00E4"));
+      return false;
+    case OSLH: // Ö
+      if (record->event.pressed)
+        SS_IF_SHIFT(SS_LALT("00D6"), SS_LALT("00F6"));
+      return false;
   }
   return true;
 }
