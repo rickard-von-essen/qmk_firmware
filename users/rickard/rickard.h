@@ -5,7 +5,6 @@
 
 #define SS_IF_SHIFT(c, s) ((get_mods() & ((MOD_BIT(KC_LSFT) | MOD_BIT(KC_RSFT)))) ? SEND_STRING(c) : SEND_STRING(s))
 
-
 void compose_int_char(int, int, int);
 
 // Compose key style international characters for use with US (ANSI) layout
@@ -19,5 +18,6 @@ enum custom_keycodes {
   C_OS_MAC,
 };
 
+// void my_custom_function(void);
 
 #endif
