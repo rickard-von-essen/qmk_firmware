@@ -24,9 +24,9 @@ enum custom_keycodes {
   LOWER,
   RAISE,
   ADJUST,
-  AA,      //
-  AE,      //
-  OSLH,    //
+  AA,      // Å
+  AE,      // Ä
+  OSLH,    // Ö
 };
 
 // Fillers to make layering more clear
