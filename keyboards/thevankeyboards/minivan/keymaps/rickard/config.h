@@ -1,3 +1,9 @@
 #pragma once
 
-// place overrides here
+/* RGB LED */
+#define RGB_DI_PIN D0
+#define RGBLED_NUM 3
+#define RGBLIGHT_LIMIT_VAL 100
+
+// #define RGBLIGHT_EFFECT_BREATHING
+// #define RGBLIGHT_EFFECT_BREATHE_MAX 100

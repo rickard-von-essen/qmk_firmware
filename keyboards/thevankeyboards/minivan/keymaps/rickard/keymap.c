@@ -64,3 +64,29 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
+
+uint32_t layer_state_set_user(uint32_t state) {
+    switch (biton32(state)) {
+    case _L1:
+        // rgblight_mode(RGBLIGHT_MODE_STATIC_LIGHT);
+        rgblight_setrgb_at(RGB_GREEN, 0);
+        break;
+    case _L2:
+        rgblight_setrgb_at(RGB_TURQUOISE, 1);
+        break;
+    case _L3:
+        rgblight_setrgb_at(RGB_CYAN, 2);
+        break;
+    default:
+        rgblight_setrgb(RGB_AZURE);
+        // rgblight_mode(RGBLIGHT_MODE_BREATHING);
+        break;
+    }
+  return state;
+}
+
+void keyboard_post_init_user(void) {
+  rgblight_setrgb(RGB_AZURE);
+  rgblight_enable();
+  // rgblight_mode(RGBLIGHT_MODE_BREATHING);
+}
