@@ -65,12 +65,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  '------------------------------------------------------------------------------------------------------------------------------'
  */
 
- [_2UARROW] = LAYOUT_2u_arrow(
+ [_2UARROW] = LAYOUT_ortho_2x2u(
   _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,   KC_GRV,   KC_BSLS,  KC_6,    KC_7,    KC_8,    KC_9,    KC_0,     KC_BSPC, \
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   KC_LBRC,  KC_RBRC,  KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,     KC_BSPC, \
   KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   KC_LPRN,  KC_RPRN,  KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,  KC_QUOT, \
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,   KC_MINS,  KC_EQL,   KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_ENT,  \
-  ADJ,     KC_LCTL, KC_LALT, KC_LGUI, FN,         ENT_FN,           SPC_FN,         FN,      KC_LGUI, KC_RSFT, _______, _______
+  ADJ,     KC_LCTL, KC_LALT, KC_LGUI, FN,         ENT_FN,              SPC_FN,      FN,      KC_LGUI, KC_RSFT, _______,  _______
  ),
 
  /* FUNCTION
@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  '------------------------------------------------------------------------------------------------------------------------------'
  */
 
- [_FN] = LAYOUT_2u_arrow(
+ [_FN] = LAYOUT_ortho_2x2u(
   _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_TILD, KC_PIPE, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______, \
   _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_LCBR, KC_RCBR, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______, \
   _______, KC_F11,  KC_F12,  _______, _______, _______, KC_LPRN, KC_RPRN, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_COLN, KC_DQT,  \
@@ -109,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  '------------------------------------------------------------------------------------------------------------------------------'
  */
 
- [_ADJUST] = LAYOUT_2u_arrow(
+ [_ADJUST] = LAYOUT_ortho_2x2u(
   _______, _______, _______, _______, _______, _______, _______, RESET,   _______, _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, AA,      \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_NUHS, KC_NUBS, _______, OSLH,    AE,      \
