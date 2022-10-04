@@ -12,12 +12,6 @@ void compose_int_char(int, int, int);
 #define C_SE_AE
 #define C_SE_OSLH
 
-enum custom_keycodes {
-  C_OS_LIN = 0,
-  C_OS_WIN,
-  C_OS_MAC,
-};
-
 // void my_custom_function(void);
 
 #endif

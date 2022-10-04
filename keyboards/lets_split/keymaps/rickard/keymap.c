@@ -15,7 +15,7 @@ extern keymap_config_t keymap_config;
 #define _DVORAK 2
 #define _LOWER 3
 #define _RAISE 4
-#define _ADJUST 16
+#define _ADJUST 5
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
@@ -30,7 +30,6 @@ enum custom_keycodes {
 };
 
 // Fillers to make layering more clear
-#define _______ KC_TRNS
 #define XXXXXXX KC_NO
 
 
