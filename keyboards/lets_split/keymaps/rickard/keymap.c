@@ -1,5 +1,27 @@
 #include QMK_KEYBOARD_H
 
+enum unicode_names {
+  UM_AA,      // å
+  UM_AE,      // ä
+  UM_OSLH,    // ö
+  UM_AA_U,    // Å
+  UM_AE_U,    // Ä
+  UM_OSLH_U,  // Ö
+};
+
+const uint32_t PROGMEM unicode_map[] = {
+    [UM_AA]      = 0x00e5,  // å
+    [UM_AE]      = 0x00e4,  // ä
+    [UM_OSLH]    = 0x00f6,  // ö
+    [UM_AA_U]    = 0x00c5,  // Å
+    [UM_AE_U]    = 0x00c4,  // Ä
+    [UM_OSLH_U]  = 0x00d6,  // Ö // This doesn't seem to work on macOS ?!
+};
+
+#define AA      XP(UM_AA, UM_AA_U)
+#define AE      XP(UM_AE, UM_AE_U)
+#define OSLH    XP(UM_OSLH, UM_OSLH_U)
+
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
@@ -28,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
+ * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  '   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -116,19 +138,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Adjust (Lower + Raise)
  * ,-----------------------------------------------------------------------------------.
- * |      | Reset|      |      |      |      |      |      |      |      |      |  Del |
+ * |      | Reset|EE cle|      |      |      |      |      |      |      |      |   Å  | EEPROM Clear
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |      |Aud on|Audoff|AGnorm|AGswap|Qwerty|Colemk|Dvorak|      |      |
+ * |      |      |      |Aud on|Audoff|AGnorm|AGswap|Qwerty|Colemk|Dvorak|   Ö  |   Ä  |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |      | Tog  | Mode | Hue- | Hue+ | Sat- | Sat+ | Val- | Val+ |      |      |      | RGB Row
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] =  LAYOUT_ortho_4x12(
-  _______, QK_BOOT,   _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_DEL,
-  _______, _______, _______, AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK, DVORAK,  _______, _______,
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  _______, QK_BOOT, EE_CLR,  _______, _______, _______, _______, _______, _______, _______, _______, AA,
+  _______, _______, _______, AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK, DVORAK,  OSLH,    AE,
+  _______, RGB_TOG, RGB_MOD, RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI, RGB_VAD, RGB_VAI, _______, _______, _______,
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 )
 
