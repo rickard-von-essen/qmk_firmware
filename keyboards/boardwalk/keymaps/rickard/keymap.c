@@ -33,9 +33,9 @@ const uint32_t PROGMEM unicode_map[] = {
     [UM_OSLH_U]  = 0x00d6,  // Ö // This doesn't seem to work on macOS ?!
 };
 
-#define AA      XP(UM_AA, UM_AA_U)
-#define AE      XP(UM_AE, UM_AE_U)
-#define OSLH    XP(UM_OSLH, UM_OSLH_U)
+#define AA      UP(UM_AA, UM_AA_U)
+#define AE      UP(UM_AE, UM_AE_U)
+#define OSLH    UP(UM_OSLH, UM_OSLH_U)
 
 // Layer shorthand
 enum layer {
@@ -110,10 +110,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
  [_ADJUST] = LAYOUT_ortho_2x2u(
-  _______, _______, _______, _______, _______, _______, _______, RESET,   _______, _______, _______, _______, _______, _______, \
+  _______, _______, _______, _______, _______, _______, _______, QK_BOOT, _______, _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, AA,      \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_NUHS, KC_NUBS, _______, OSLH,    AE,      \
-  _______, RGB_TOG, RGB_MOD, RGB_HUD, RGB_HUI, RGB_SAD, UC_MOD,  _______, RGB_SAI, RGB_VAD, RGB_VAI, _______, _______, _______, \
+  _______, RGB_TOG, RGB_MOD, RGB_HUD, RGB_HUI, RGB_SAD, UC_NEXT,  _______, RGB_SAI, RGB_VAD, RGB_VAI, _______, _______, _______, \
   _______, _______, _______, _______, _______,     _______,           _______,     _______, _______, _______, _______, _______
  )
 };
