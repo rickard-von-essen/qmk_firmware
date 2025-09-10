@@ -39,6 +39,9 @@
         "speaker": "C6"
     },
     "processor": "atmega32u4",
+    "dynamic_keymap": {
+        "layer_count": 7
+    },
     "bootloader": "qmk-dfu",
     "community_layouts": ["ortho_5x12"],
     "layout_aliases": {
